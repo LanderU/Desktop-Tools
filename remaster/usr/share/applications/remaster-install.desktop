@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Instalar o sistema no HD
+GenericName=Instalar o sistema no HD
+Comment=Install the operating system to disk
+Exec=remsu /usr/bin/live-installer
+Icon=/usr/share/icons/live-installer.png
+Terminal=False
+Type=Application
+Categories=System;
+Name[pt_BR.UTF-8]=Instalar o sistema no HD

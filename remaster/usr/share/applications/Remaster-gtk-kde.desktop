@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Remaster-gtk
+GenericName=System Backup
+Exec=kdesudo remaster-gtk
+Icon=/usr/share/icons/remaster/remaster-gtk.png
+Terminal=false
+Type=Application
+Categories=System;Settings;
+GenericName[en_CA]=System Backup
+OnlyShowIn=KDE;
+Name[pt_BR]=Remaster-gtk

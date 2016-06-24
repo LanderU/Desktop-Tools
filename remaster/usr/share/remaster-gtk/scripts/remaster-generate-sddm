@@ -1,0 +1,5 @@
+#!/bin/bash
+echo Gerando as configurações do SDDM,Aguarde...
+
+
+echo "testes" > /etc/sddm.conf 

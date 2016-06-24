@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Remaster Grub Restore
+GenericName=Remaster Grub Restore
+Comment=Restore grub
+Exec=remsu /usr/share/remaster-gtk/scripts/remaster-grub-restore gui
+Icon=/usr/share/icons/remaster/grub.png
+Terminal=false
+Type=Application
+Categories=System;Settings;
+Name[pt_BR]=Recuperar o Grub
+

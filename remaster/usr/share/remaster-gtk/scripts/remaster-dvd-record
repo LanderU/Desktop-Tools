@@ -1,0 +1,30 @@
+#!/bin/sh
+DIALOG="`which zenity` --width=500 --height=100"
+TITLE="--title="
+TEXT="--text="
+ENTRY="--entry "
+ENTRYTEXT="--entry-text "
+FILESELECTION="--file-selection "
+MENU="--list --column=Marque --column=Dispositivo --column=Tamanho"
+YESNO="--question "
+MSGBOX="--info "
+PASSWORD="--entry --hide-text "
+TITLETEXT="Gravação de DVD"
+CHECK="--checklist"
+DIR="--separator "
+rm /tmp/remaster-dvd-record
+ISO=`$DIALOG $TITLE"Escolha uma .ISO para a criação do pendrive de boot" $FILESELECTION --file-filter=*.iso`
+if [ $? != 0 ]; then
+exit 1
+fi
+echo "ISO=\"$ISO\"" >> /tmp/remaster-dvd-record
+. /tmp/remaster-dvd-record
+echo 'Preparando a gravadora'
+echo
+echo 'Gravadora pronta'
+echo
+echo 'Gravando a imagem .ISO no DVD, aguarde'
+echo
+cdrskin -v -fs=16M speed=8 Lin=0,0,0 -data $ISO 
+echo
+exit

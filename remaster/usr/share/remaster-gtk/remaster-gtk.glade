@@ -1,0 +1,2220 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.20 -->
+  <!-- interface-naming-policy toplevel-contextual -->
+  <widget class="GtkWindow" id="window1">
+    <property name="visible">True</property>
+    <property name="border_width">6</property>
+    <property name="title" translatable="yes">Remaster</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="icon_name">remaster-gtk</property>
+    <signal name="delete_event" handler="on_window1_delete_event"/>
+    <child>
+      <widget class="GtkVBox" id="vbox1">
+        <property name="width_request">950</property>
+        <property name="height_request">690</property>
+        <property name="visible">True</property>
+        <property name="border_width">1</property>
+        <property name="spacing">6</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <widget class="GtkNotebook" id="notebook1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tab_pos">left</property>
+            <child>
+              <widget class="GtkHBox" id="hbox5">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkVBox" id="vbox3">
+                    <property name="visible">True</property>
+                    <child>
+                      <widget class="GtkVBox" id="vbox5">
+                        <property name="visible">True</property>
+                        <child>
+                          <widget class="GtkImage" id="image2">
+                            <property name="visible">True</property>
+                            <property name="yalign">0.029999999329447746</property>
+                            <property name="pixbuf">fundo2.png</property>
+                            <property name="pixel_size">730</property>
+                          </widget>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkButton" id="button7">
+                        <property name="label">gtk-info</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="clicked" handler="on_button6_clicked"/>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label27">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Home</property>
+              </widget>
+              <packing>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox4">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkScrolledWindow" id="scrolledwindow2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <child>
+                      <widget class="GtkTextView" id="textview2">
+                        <property name="width_request">480</property>
+                        <property name="height_request">480</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="editable">False</property>
+                        <property name="left_margin">6</property>
+                        <property name="text" translatable="yes">
+1&#xBA;. Para ter uma c&#xF3;pia do sistema funcional e sem problemas,use sempre o Debian stable,
+s&#xF3; use o testing se tiver conhecimento de medi a avan&#xE7;ado em gnu/linux.
+
+2&#xBA;. Na instala&#xE7;&#xE3;o do sistema evite os meta pacotes,recomendo que use o netinst e 
+instale os pacotes manualmente e sem meta pacotes.
+
+3&#xBA;. N&#xE3;o use reposit&#xF3;rios de fora do Debian,de forma alguma.
+
+4&#xBA;. Quando optar por um gerenciador de sess&#xE3;o, certifique-se de ter purgado por completo o 
+anterior caso o tenha.
+Os compat&#xED;veis s&#xE3;o:
+GDM
+MDM
+LIGHTMDM
+KDM
+Isso em suas vers&#xF5;es originais,se usar outros,n&#xE3;o vai funcionar no Remaster.
+
+5&#xBA;. Remova qualquer tra&#xE7;o de outro kernel,deixe somente o principal, para iso na guia
+ 'Configura&#xE7;&#xF5;es' use o bot&#xE3;o 'Apagar kernel antigos',mas somente se voc&#xEA; tiver outros kernel instalados.
+
+6&#xBA;. Instale o headers do seu kernel (Recomend&#xE1;vel) com o comando abaixo.
+
+sudo apt-get install linux-headers-$(uname -r)
+
+7&#xBA;. Se for criar o sistema em maquina virtual (virtualbox), depois do sistema instalado na VM,
+purge o virtual box,com o comando no terminal do sistema rec&#xE9;m instalado na vm,n&#xE3;o &#xE9; no host n&#xE3;o.
+
+Sudo apt-get remove &#x2013;purge virtualbox*
+
+OBS: Por algum motivo pode ocorrer a instala&#xE7;&#xE3;o involunt&#xE1;ria de pacotes do virtualbox em
+sistemas i386 (x86),por isso &#xE9; bom rodar o comando acima para resolver isso.
+
+8&#xBA;. N&#xE3;o coloque user algum no sudoers para usar o sudo,se colocou remova.
+Para seu user poder usar o sudo,coloque ele no grupo do sudo com o comando abaixo.
+su
+adduser seunomedeuser sudo
+
+9&#xBA;. Nunca use mais de um ambiente gr&#xE1;fico.</property>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkAlignment" id="alignment2">
+                    <property name="visible">True</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label26">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Help</property>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox2">
+                <property name="visible">True</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label25">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Output</property>
+                <property name="justify">fill</property>
+              </widget>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkTable" id="table4">
+                <property name="visible">True</property>
+                <property name="n_rows">25</property>
+                <property name="n_columns">4</property>
+                <property name="column_spacing">6</property>
+                <child>
+                  <widget class="GtkLabel" id="label15">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Username.</property>
+                  </widget>
+                  <packing>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label18">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Name of your remastering., quotation marks.</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label20">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Name of ISO.</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">2</property>
+                    <property name="bottom_attach">3</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">2</property>
+                    <property name="bottom_attach">3</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label21">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Working directory.</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">3</property>
+                    <property name="bottom_attach">4</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHBox" id="hbox1">
+                    <property name="visible">True</property>
+                    <child>
+                      <widget class="GtkButton" id="button8">
+                        <property name="label">Select</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_button8_clicked"/>
+                      </widget>
+                      <packing>
+                        <property name="padding">3</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkEntry" id="entry6">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="invisible_char">&#x25CF;</property>
+                        <property name="primary_icon_sensitive">True</property>
+                        <property name="secondary_icon_sensitive">True</property>
+                      </widget>
+                      <packing>
+                        <property name="padding">131</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">3</property>
+                    <property name="bottom_attach">4</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button18">
+                    <property name="label" translatable="yes">Select</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button18_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">8</property>
+                    <property name="bottom_attach">9</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHBox" id="hbox2">
+                    <property name="visible">True</property>
+                    <child>
+                      <widget class="GtkLabel" id="label23">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">Image of Grub.</property>
+                        <property name="width_chars">60</property>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkProgressBar" id="progressbar1">
+                        <property name="show_text">True</property>
+                        <property name="text" translatable="yes">Updating GRUB, please wait...</property>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">8</property>
+                    <property name="bottom_attach">9</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button19">
+                    <property name="label" translatable="yes">Select</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button19_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">9</property>
+                    <property name="bottom_attach">10</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label29">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Theme Plymouth.</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">9</property>
+                    <property name="bottom_attach">10</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label13">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">&lt;span color="red"&gt;Working directory must be on a partition with Linux file system (Example: ext2, ext3, ext4. Never to NTFS or Fat).&lt;/span&gt;</property>
+                    <property name="use_markup">True</property>
+                    <property name="wrap">True</property>
+                    <property name="width_chars">80</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">4</property>
+                    <property name="bottom_attach">5</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                    <property name="x_padding">32</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label22">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Files to exclude.</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">5</property>
+                    <property name="bottom_attach">6</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry4">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">5</property>
+                    <property name="bottom_attach">6</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry7">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char_set">True</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">6</property>
+                    <property name="bottom_attach">7</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button15">
+                    <property name="label" translatable="yes">Select</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button9_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">7</property>
+                    <property name="bottom_attach">8</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label30">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Image of the boot menu .ISO.</property>
+                    <property name="width_chars">60</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">7</property>
+                    <property name="bottom_attach">8</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label12">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Squashfs options.</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">6</property>
+                    <property name="bottom_attach">7</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry5">
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="primary_icon_sensitive">True</property>
+                    <property name="secondary_icon_sensitive">True</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">24</property>
+                    <property name="bottom_attach">25</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                    <property name="x_padding">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkCheckButton" id="checkbutton1">
+                    <property name="label" translatable="yes">Show install icon on Backup mode desktop.</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">24</property>
+                    <property name="bottom_attach">25</property>
+                    <property name="y_options">GTK_FILL</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button12">
+                    <property name="label" translatable="yes">Select</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button11_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">10</property>
+                    <property name="bottom_attach">11</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label31">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">User settings.</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">10</property>
+                    <property name="bottom_attach">11</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label1">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">User settings.</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">11</property>
+                    <property name="bottom_attach">12</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button9">
+                    <property name="label" translatable="yes">Clear</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button13_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">11</property>
+                    <property name="bottom_attach">12</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Old kernel.</property>
+                    <property name="width_chars">60</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">12</property>
+                    <property name="bottom_attach">13</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button30">
+                    <property name="label" translatable="yes">Clear</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button30_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">12</property>
+                    <property name="bottom_attach">13</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkHSeparator" id="hseparator3">
+                    <property name="height_request">7</property>
+                    <property name="visible">True</property>
+                  </widget>
+                  <packing>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">14</property>
+                    <property name="bottom_attach">15</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button31">
+                    <property name="label" translatable="yes">Generate</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button31_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">13</property>
+                    <property name="bottom_attach">14</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Settings to log into live CD / DVD with sddm, only in KDE</property>
+                    <property name="width_chars">60</property>
+                  </widget>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">13</property>
+                    <property name="bottom_attach">14</property>
+                    <property name="x_options">GTK_FILL</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label16">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Settings</property>
+              </widget>
+              <packing>
+                <property name="position">4</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkVBox" id="vbox4">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkHBox" id="hbox3">
+                    <property name="visible">True</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <widget class="GtkTable" id="table2">
+                        <property name="visible">True</property>
+                        <property name="n_rows">8</property>
+                        <property name="n_columns">2</property>
+                        <child>
+                          <widget class="GtkButton" id="button5">
+                            <property name="label">Clear</property>
+                            <property name="height_request">32</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="use_stock">True</property>
+                            <signal name="clicked" handler="on_button5_clicked"/>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">7</property>
+                            <property name="bottom_attach">8</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkButton" id="button4">
+                            <property name="label" translatable="yes">ISO Distribution II</property>
+                            <property name="height_request">32</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_button4_clicked"/>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">6</property>
+                            <property name="bottom_attach">7</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkButton" id="button3">
+                            <property name="label" translatable="yes">Distribution II</property>
+                            <property name="height_request">32</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_button3_clicked"/>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">5</property>
+                            <property name="bottom_attach">6</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkButton" id="button2">
+                            <property name="label" translatable="yes">Distribution</property>
+                            <property name="height_request">32</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_button2_clicked"/>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">4</property>
+                            <property name="bottom_attach">5</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkButton" id="button1">
+                            <property name="label" translatable="yes">Backup</property>
+                            <property name="height_request">32</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <signal name="clicked" handler="on_button1_clicked"/>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">3</property>
+                            <property name="bottom_attach">4</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label10">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.05000000074505806</property>
+                            <property name="label" translatable="yes">Remove temporary files from the working directory, to create a new project.</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">7</property>
+                            <property name="bottom_attach">8</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label8">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.05000000074505806</property>
+                            <property name="label" translatable="yes">Create one .ISO with a full copy of the system files with the option Distribution II.</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">6</property>
+                            <property name="bottom_attach">7</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label9">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.11999999731779099</property>
+                            <property name="label" translatable="yes">Create a temporary directory with a complete copy of the system, not including personal settings.</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">5</property>
+                            <property name="bottom_attach">6</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label7">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.05000000074505806</property>
+                            <property name="label" translatable="yes">Create one .ISO with a complete copy of the system, not including personal settings.</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">4</property>
+                            <property name="bottom_attach">5</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label6">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.05000000074505806</property>
+                            <property name="label" translatable="yes">Create one .ISO with a complete copy of the system, including personal settings.</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">3</property>
+                            <property name="bottom_attach">4</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label14">
+                            <property name="visible">True</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options">GTK_FILL</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label19">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.10000000149011612</property>
+                            <property name="label" translatable="yes">Debian and derivatives</property>
+                            <property name="justify">right</property>
+                            <property name="width_chars">80</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                            <property name="y_options"/>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label24">
+                            <property name="visible">True</property>
+                          </widget>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">2</property>
+                            <property name="bottom_attach">3</property>
+                            <property name="x_options">GTK_FILL</property>
+                            <property name="y_options">GTK_FILL</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkImage" id="image5">
+                            <property name="visible">True</property>
+                            <property name="pixel_size">58</property>
+                            <property name="icon_name">distributor-logo-debian</property>
+                          </widget>
+                          <packing>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkVBox" id="vbox6">
+                    <property name="visible">True</property>
+                    <child>
+                      <widget class="GtkHSeparator" id="hseparator1">
+                        <property name="height_request">4</property>
+                        <property name="visible">True</property>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">8</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkHBox" id="hbox6">
+                        <property name="visible">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkVBox" id="vbox8">
+                    <property name="visible">True</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <widget class="GtkHBox" id="hbox7">
+                        <property name="visible">True</property>
+                        <child>
+                          <widget class="GtkVBox" id="vbox9">
+                            <property name="visible">True</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkTable" id="table5">
+                            <property name="visible">True</property>
+                            <property name="n_rows">8</property>
+                            <property name="n_columns">2</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">6</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label5">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Actions</property>
+              </widget>
+              <packing>
+                <property name="position">6</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkTable" id="table3">
+                <property name="visible">True</property>
+                <property name="n_rows">4</property>
+                <property name="n_columns">2</property>
+                <property name="column_spacing">6</property>
+                <property name="row_spacing">6</property>
+                <child>
+                  <widget class="GtkButton" id="button17">
+                    <property name="label" translatable="yes">Record the .ISO in DVDR or DVDRW.</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button14_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">3</property>
+                    <property name="bottom_attach">4</property>
+                    <property name="x_options"/>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkImage" id="image1">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="pixel_size">100</property>
+                    <property name="icon_name">pendrive</property>
+                  </widget>
+                  <packing>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="button16">
+                    <property name="label" translatable="yes">Generate a bootable USB stick with. Created ISO.</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_button12_clicked"/>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                    <property name="x_options"/>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkImage" id="image4">
+                    <property name="visible">True</property>
+                    <property name="yalign">1</property>
+                    <property name="pixel_size">100</property>
+                    <property name="icon_name">remaster-dvd</property>
+                  </widget>
+                  <packing>
+                    <property name="top_attach">2</property>
+                    <property name="bottom_attach">3</property>
+                    <property name="y_options"/>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">7</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label28">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Recording</property>
+              </widget>
+              <packing>
+                <property name="position">7</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkScrolledWindow" id="scrolledwindow1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <child>
+                  <widget class="GtkTextView" id="textview1">
+                    <property name="width_request">480</property>
+                    <property name="height_request">480</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="editable">False</property>
+                    <property name="left_margin">6</property>
+                    <property name="text" translatable="yes">                                                                       Crie sua distribui&#xE7;&#xE3;o Gnome 3
+
+Este tutorial &#xE9; apenas para a op&#xE7;&#xE3;o Distribui&#xE7;&#xE3;o.
+
+Baixe e instale o Debian,atualize e instale seus programas preferidos 
+
+http://www.debian.org/distrib/
+
+Com o Debian instalado,vamos definir as configura&#xE7;&#xF5;es que queremos como padr&#xE3;o do seu remaster.
+
+## Conky weather e lua complementos 
+sudo apt-get install conky conky-all lua5.1 liblua5.1-socket2 curl lm-sensors
+ 
+sudo sensors-detect
+ 
+## Alterar o tema padr&#xE3;o do shell 
+Antes de mais nada,salve uma copia da pasta de configura&#xE7;&#xF5;es que iremos trabalhar,no caso de problemas use ela para reparar o gnome.
+
+sudo cp -r /usr/share/glib-2.0 /usr/share/glib-2.0-old
+
+Outro cuidado,n&#xE3;o instale driver de v&#xED;deo
+Baixe um tema do shell ,descompacte 
+
+Copie a pasta gnome-shell para a sua home 
+crie uma copia do original 
+
+sudo mv /usr/share/gnome-shell/theme /usr/share/gnome-shell/themebk 
+
+sudo mv ~/gnome-shell /usr/share/gnome-shell/theme 
+
+sudo chgrp -R root /usr/share/gnome-shell/theme &amp;&amp; sudo chown -R root /usr/share/gnome-shell/theme &amp;&amp; sudo chmod -R 755 /usr/share/gnome-shell/theme 
+
+alt+f2 digite r e tecle enter 
+
+
+## Alterar o papel de parede 
+Baixe um papel de parede para sua home de a ele o nome de wallpaper 
+
+sudo mv ~/wallpaper* /usr/share/backgrounds 
+ 
+sudo chgrp -R root /usr/share/backgrounds/wallpaper* &amp;&amp; sudo chown -R root /usr/share/backgrounds/wallpaper* &amp;&amp; sudo chmod -R 755 /usr/share/backgrounds/wallpaper* 
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml 
+
+Localise "picture-uri" e altere o endere&#xE7;o de 
+
+'file:///usr/share/themes/Adwaita/backgrounds/adwaita-timed.xml' 
+
+para 
+
+'file:///usr/share/backgrounds/wallpaper.jpg' 
+
+sudo /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas 
+
+## Alterar a lista dos favoritos da barra lateral ,Monte os seus favoritos na barra da forma que achar melhor 
+
+alt+f2 
+dconf-editor 
+navegue 
+org/gnome/shell 
+click em shell,a direita localise 'favorite-apps' de um click no que est&#xE1; entre colchete,click direito,copiar 
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml 
+
+localise a linha 20 
+&lt;default&gt;[ 'epiphany.desktop', 'evolution.desktop', 'empathy.desktop', 'rhythmbox.desktop', 'shotwell.desktop', 'libreoffice-writer.desktop', 'nautilus.desktop', 'gnome-documents.desktop' ]&lt;/default&gt; 
+
+,selecione de colchete a colchete e cole,salve 
+
+## Alterar os bot&#xF5;es de fechar 
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.xml 
+
+Localize button-layout 
+
+&lt;key type="s" name="button-layout"&gt; 
+      &lt;default&gt;":close"&lt;/default&gt; 
+      &lt;summary&gt;Arrangement of buttons on the titlebar&lt;/summary&gt; 
+      &lt;description&gt; 
+
+Note que s&#xF3; temos close,altere para 
+:minimize,maximize,close 
+
+ficando assim 
+
+&lt;key type="s" name="button-layout"&gt; 
+      &lt;default&gt;":minimize,maximize,close"&lt;/default&gt; 
+      &lt;summary&gt;Arrangement of buttons on the titlebar&lt;/summary&gt; 
+      &lt;description&gt; 
+
+salve e feche 
+
+Fa&#xE7;a o mesmo nesse arquivo 
+
+sudo gedit /usr/share/glib-2.0/schemas/10_gnome-shell.gschema.override 
+
+de o comando para fixar as altera&#xE7;&#xF5;es 
+
+sudo /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas 
+
+
+## Colocar icones nos menus e bot&#xF5;es 
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml 
+
+em 
+"menus-have-icons" e "buttons-have-icons" 
+mude de false para true 
+
+salve 
+## Habilitar os icones do desktop 
+
+Habilitar o desktop com click direito
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml 
+
+em show-desktop-icons,altere de false para true 
+
+salve e feche 
+
+Habilitar os icones de compotador,meus documentos,lixeira,dispositivos removiveis
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+
+Em
+
+&lt;key type="b" name="home-icon-visible"&gt; 
+      &lt;default&gt;false&lt;/default&gt;
+
+Altere para
+
+&lt;key type="b" name="home-icon-visible"&gt; 
+      &lt;default&gt;true&lt;/default&gt;
+
+Em
+
+&lt;key type="b" name="computer-icon-visible"&gt; 
+      &lt;default&gt;false&lt;/default&gt;
+
+Altere para
+
+&lt;key type="b" name="computer-icon-visible"&gt; 
+      &lt;default&gt;true&lt;/default&gt;
+
+Em
+
+&lt;key type="b" name="trash-icon-visible"&gt; 
+      &lt;default&gt;false&lt;/default&gt;
+
+Altere para
+
+&lt;key type="b" name="trash-icon-visible"&gt; 
+      &lt;default&gt;true&lt;/default&gt;
+
+Em
+
+&lt;key type="b" name="volumes-visible"&gt; 
+      &lt;default&gt;false&lt;/default&gt;
+
+Altere para
+
+&lt;key type="b" name="volumes-visible"&gt; 
+      &lt;default&gt;true&lt;/default&gt;
+
+salve e feche 
+
+
+
+
+Alterar o nome dos icones do desktop 
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml 
+
+em "home-icon-name" 
+esta assim "" coloque "Documentos" 
+
+em "trash-icon-name" 
+esta trash, coloque lixeira 
+
+salve e feche 
+
+sudo /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas 
+
+
+
+## Alterar o tema dos &#xED;cones 
+
+Baixe um tema de &#xED;cones,descompacte na sua home 
+
+
+sudo mv ~/nomedotema 
+
+sudo mv ~/nomedotema /usr/share/icons 
+
+sudo chgrp -R root /usr/share/icons/nomedotema &amp;&amp; sudo chown -R root /usr/share/icons/nomedotema &amp;&amp; sudo chmod -R 775 /usr/share/icons/nomedotema
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml 
+
+Localize "icon-theme" e altere gnome para o nome do seu tema de &#xED;cones 
+
+salve e feche 
+
+sudo /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
+
+
+
+
+## Alterar o Tema GTK
+
+Baixe um tema da sua preferencia e descompacte na sua home
+
+sudo mv ~/nomedotema /usr/share/themes 
+
+sudo chgrp -R root /usr/share/themes/nomedotema &amp;&amp; sudo chown -R root /usr/share/themes/nomedotema &amp;&amp; sudo chmod -R 775 /usr/share/themes/nomedotema 
+
+sudo gedit /usr/share/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml 
+
+Localise "gtk-theme"
+
+altere Adwaita para o nome do seu tema,salve e feche
+
+sudo /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
+
+Agora limpe suas config e reinicie computador para ver como ficou
+
+sudo rm -r ~/.cache .config .local .gconf
+
+sudo apt-get autoremove
+
+sudo apt-get clean
+                                           Altera&#xE7;&#xF5;es no sistema
+
+##Adicione facilidades a sua remaster com o nautilus Actions.
+
+No terminal de o comando
+sudo apt-get install nautilus-actions
+
+Crie as entradas no menu de contexto com o nautilus actions,ele salva essas entradas em
+~/.local/share/file-manager, depois de tudo pronto de os comandos
+
+sudo cp -r ~/.local/share/file-manager /usr/share
+
+sudo chgrp -R root /usr/share/file-manager &amp;&amp; sudo chown -R root /usr/share/file-manager &amp;&amp; sudo chmod -R 755 /usr/share/file-manager
+
+sudo mkdir /etc/skel/.config
+
+sudo cp -r ~/.config/nautilus-actions /etc/skel/.config
+
+sudo chmod -R 755 /etc/skel/.config
+
+OBS. No caso de usar scripts para os comandos,coloque eles em  /usr/share/file-manager ,se preferir pode tamb&#xE9;m colocar em /opt
+
+## Alterar o Kernel.
+Voc&#xEA; pode instalar um kernel mais novo ou um mais antigo, isso vai depender do tipo de pc que o seu remaster se destina.
+Use sempre kernel padr&#xE3;o e evite compilados,pois podem dar problemas em outras maquinas.
+Nos reposit&#xF3;rios unstable e experimental voc&#xEA; encontra vers&#xF5;es mais recentes.
+Para remover os antigos,use o comando abaixo
+
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+## Adicionar firmware nonfree.
+
+sudo apt-get install  firmware-linux-nonfree
+
+## Trancar atualiza&#xE7;&#xE3;o de alguns programas pelo update da distro m&#xE3;e.
+
+sudo su
+
+cd root
+
+Vamos gerar a lista dos programas instalados
+
+dpkg --get-selections \*&gt; selections.txt
+
+gedit /root/selections.txt
+
+Nesse arquivo, altere install por hold  nos programas que deseja trancar ,salve e feche
+## Resolver problemas com o Java.
+
+sudo gedit /etc/sources.list
+
+add as linhas abaixo,salve e feche
+
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main 
+deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main 
+
+sudo apt-get update
+
+sudo apt-get remove --purge openjdk*
+
+sudo apt-get install oracle-java7-installer
+
+
+## Adicionando plugins.
+
+No terminal de os comandos
+
+sudo gedit /etc/sources.list
+
+add as linhas abaixo ,salve e feche.
+
+deb http://www.deb-multimedia.org testing main non-free 
+deb-src http://www.deb-multimedia.org testing main non-free
+
+No terminal
+
+sudo apt-get update
+
+sudo apt-get install deb-multimedia-keyring
+
+sudo apt-get update
+
+sudo install flashplugin-nonfree libdvdcss2 w32codecs gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad gstreamer0.10-fluendo-mp3 ffmpeg sox twolame vorbis-tools lame gnome-mplayer mplayer
+
+OBS: para sistema x64 altere o  w32codecs para  w64codecs
+
+
+
+## Remo&#xE7;&#xE3;o de pacotes.
+
+Sempre use o purge,isso para n&#xE3;o deixar res&#xED;duos.
+
+sudo apt-get remove &#x2013;purge nomedopacote
+
+sudo apt-get autoremove
+
+sudo apt-get clean
+
+
+## Tela de apresenta&#xE7;&#xE3;o plymouth.
+
+sudo apt-get install firmware-linux-nonfree plymouth plymouth-themes-all v86d hwinfo
+
+sudo update-grub 
+
+sudo plymouth-set-default-theme -l 
+
+details 
+fade-in 
+glow 
+script 
+solar 
+spacefun 
+spinfinity 
+text 
+
+###Altere o tema substituindo o nome do tema por TEMA 
+
+sudo plymouth-set-default-theme fade-in --rebuild-initrd 
+
+sudo gedit /etc/default/grub 
+
+Procure pela linha 
+
+#GRUB_GFXMODE=640x480 
+
+Altere para 
+
+GRUB_GFXMODE="1024x768" 
+GRUB_GFXPAYLOAD_LINUX="1024x768" 
+
+Agora procure essa linha 
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet" 
+
+Altere para 
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" 
+
+Salve,feche 
+
+sudo update-grub 
+
+sudo echo FRAMEBUFFER=y | tee /etc/initramfs-tools/conf.d/splash 
+
+sudo update-initramfs -u 
+
+Para ter uma amostra do tema 
+ 
+sudo plymouth-preview
+## Cria&#xE7;&#xE3;o de pequenos aplicativos.
+
+Esses aplicativos podem ser uteis,algumas dicas de estudo.
+
+shell script
+http://www.freeos.com/guides/lsst/
+zenity
+http://library.gnome.org/users/zenity/stable/
+BigBashView
+http://library.gnome.org/users/zenity/stable/
+
+
+## Depois de tudo pronto,fa&#xE7;a uma limpeza no sistema com o bleachbit.
+
+Caso n&#xE3;o o tenha instalado de o comando no terminal
+
+sudo apt-get install bleachbit
+
+Abra ele pelo menu e marque todos os quadrinhos,rode o em modo root e o normal,depois reinicie a maquina e reabra o remaster-gtk
+
+
+
+Sistema pronto para criar a sua distribui&#xE7;&#xE3;o para uso pessoal.
+
+
+
+
+
+by LOBO</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">8</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label4">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Tutorial Gnome</property>
+              </widget>
+              <packing>
+                <property name="position">8</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkTextView" id="textview3">
+                <property name="width_request">480</property>
+                <property name="height_request">480</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="left_margin">6</property>
+                <property name="text" translatable="yes">                                                                       Crie sua distribui&#xE7;&#xE3;o XFCE4
+
+Este tutorial &#xE9; apenas para a op&#xE7;&#xE3;o Distribui&#xE7;&#xE3;o.
+
+Instale o sistema,fa&#xE7;a as suas altera&#xE7;&#xF5;es de apar&#xEA;ncia.
+
+Navegue como root at&#xE9;
+
+/home/seunome/.config/xfce4
+
+Copie as pastas, desktop, panel para  /etc/xdg/xfce4/
+
+Navegue
+
+/home/seunome/.config/xfce4/xfconf/xfce-perchannel-xml/
+
+Copie quase tudo, menos xfce-session e nada relacionado a hardware para 
+
+/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+
+De o comando abaixo no terminal
+
+sudo cp -rf /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml /etc/xdg/xfce4/panel/default.xml
+
+Pronto, para testar apague a pasta
+/home/seunome/.config/xfce4
+
+E reinicie a sess&#xE3;o, se tudo estiver correto,pode gerar a sua iso.
+
+
+by LOBO</property>
+              </widget>
+              <packing>
+                <property name="position">9</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label17">
+                <property name="visible">True</property>
+                <property name="ypad">12</property>
+                <property name="label" translatable="yes">Tutorial XFCE4</property>
+              </widget>
+              <packing>
+                <property name="position">9</property>
+                <property name="tab_fill">False</property>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkWindow" id="window2">
+    <property name="border_width">12</property>
+    <property name="title" translatable="yes">Default settings.</property>
+    <property name="window_position">center</property>
+    <signal name="delete_event" handler="on_window2_delete_event"/>
+    <child>
+      <widget class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <widget class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Select the user, whose settings to be used as default.</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <widget class="GtkTreeView" id="treeview1">
+                <property name="height_request">128</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label3">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">&lt;span color="red"&gt;WARNING: make sure you chose user with a SMALL home directory, not some with gigabytes of data!
+Even so, you must manually check the contents of /etc/skel afterwards, and make sure it does not contain sensitive information (especially in the hidden folders)!&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="wrap">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkProgressBar" id="progressbar1">
+            <property name="text" translatable="yes">Copying files, please wait...</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="spacing">6</property>
+            <property name="layout_style">end</property>
+            <child>
+              <widget class="GtkButton" id="button2">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_button2_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button1">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_button1_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkWindow" id="window3">
+    <property name="border_width">12</property>
+    <property name="title" translatable="yes">Select plymouth theme</property>
+    <property name="window_position">center</property>
+    <signal name="delete_event" handler="on_window3_delete_event"/>
+    <child>
+      <widget class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <child>
+          <widget class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Available plymouth themes:</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="height_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <widget class="GtkTreeView" id="treeview1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="checkbutton1">
+            <property name="label" translatable="yes">Automatic selection</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="has_tooltip">True</property>
+            <property name="tooltip" translatable="yes">Auto-select the plymouth theme, based on the update-alternatives information</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_checkbutton1_toggled"/>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkProgressBar" id="progressbar1">
+            <property name="show_text">True</property>
+            <property name="text" translatable="yes">Updating initramfs, please wait...</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator1">
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="spacing">6</property>
+            <property name="layout_style">end</property>
+            <child>
+              <widget class="GtkButton" id="button2">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="has_tooltip">True</property>
+                <property name="tooltip" translatable="yes">Use the currently selected plymouth theme</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_button2_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button3">
+                <property name="label" translatable="yes">Create</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="has_tooltip">True</property>
+                <property name="tooltip" translatable="yes">Create a simple static plymouth theme</property>
+                <signal name="clicked" handler="on_button3_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button4">
+                <property name="label" translatable="yes">Preview</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="has_tooltip">True</property>
+                <property name="tooltip" translatable="yes">Preview the currently selected plymouth theme</property>
+                <signal name="clicked" handler="on_button4_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button1">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_button1_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

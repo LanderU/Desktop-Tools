@@ -1,0 +1,44 @@
+#!/bin/sh
+DIALOG="`which zenity` --width=500 --height=100"
+TITLE="--title="
+TEXT="--text="
+ENTRY="--entry "
+ENTRYTEXT="--entry-text "
+FILESELECTION="--file-selection "
+MENU="--list --column=Marque --column=Dispositivo --column=Tamanho"
+YESNO="--question "
+MSGBOX="--info "
+PASSWORD="--entry --hide-text "
+TITLETEXT="Remaster para o Pendrive"
+CHECK="--checklist"
+DIR="--separator "
+rm /tmp/remaster-usb-key-copy
+DEVS=""
+DEVS=`find /dev/disk/by-path/ -name "*usb*" | xargs ls -l | grep -v "part" | awk '{print $NF}' | awk -F "/" '{print $NF}'`
+for i in $DEVS; do
+USBDRIVESIZE=`grep -m 1 "$i" /proc/partitions | awk '{print $3}'`
+USBDRIVES="$USBDRIVESIZE $i $USBDRIVES "
+done
+USBDRIVE=`$DIALOG $TEXT"\nSelecione o pendrive na lista." $TITLE"$TITLETEXT" $MENU $CHECK $USBDRIVES $USBDRIVESIZE`
+if [ $? != 0 ]; then
+exit 1
+fi
+echo "USBDRIVE=\"$USBDRIVE\"" >> /tmp/remaster-usb-key-copy
+
+ISO=`$DIALOG $TITLE"Escolha uma .ISO para a criação do pendrive de boot" $FILESELECTION --file-filter=*.iso`
+if [ $? != 0 ]; then
+exit 1
+fi
+echo "ISO=\"$ISO\"" >> /tmp/remaster-usb-key-copy
+. /tmp/remaster-usb-key-copy
+echo 'Montando o pendrive'
+echo
+umount `mount | grep $USBDRIVE | awk '{print $1}'`
+echo
+echo 'Pendrive montado'
+echo
+echo 'Criando o Pendrive de boot, aguarde'
+echo
+dd if=$ISO |pv|dd of=/dev/$USBDRIVE bs=1M 
+echo
+exit 

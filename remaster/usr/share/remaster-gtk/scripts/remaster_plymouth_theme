@@ -1,0 +1,47 @@
+#!/bin/sh
+DIALOG="`which zenity` --width=150 --height=450"
+TITLE="--title="
+TEXT="--text="
+ENTRY="--entry "
+ENTRYTEXT="--entry-text "
+FILESELECTION="--file-selection "
+MENU="--list --column=Temas "
+YESNO="--question "
+MSGBOX="--info "
+PASSWORD="--entry --hide-text "
+TITLETEXT="Tema Plymouth"
+CHECK="--checklist"
+DIR="--separator "
+rm /tmp/remaster-plymout-theme
+testplymouth=`which plymouth`
+
+if [ "$testplymouth" = "" ]; then
+echo " Plymouth not present - proceeding to install plymouth"
+apt-get update
+apt-get install plymouth plymouth-themes-all plymouth-x11
+testplymouth=`which plymouth`
+fi
+THEME=""
+THEME=`plymouth-set-default-theme -l | awk '{print}'`
+for i in $THEME; do
+THEME="$i"
+PLYMOUTH="$PLYMOUTH $i"
+echo "PLYMOUTH=\"$THEME\"" >> /tmp/remaster-plymout-theme
+done
+THEME=`$DIALOG $TEXT"\nSelecione o tema na lista." $TITLE"$TITLETEXT" $MENU  $PLYMOUTH`
+if [ $? != 0 ]; then
+exit 1
+fi
+echo "THEME=\"$THEME\"" >> /tmp/remaster-plymout-theme
+echo
+echo 'Tema' $THEME 'selecionado'
+echo
+echo 'Aplicando o tema '$THEME 'Aguarde'
+echo
+plymouth-set-default-theme $THEME --rebuild-initrd
+echo
+echo 'Visualizar o tema escolhido'
+/usr/share/remaster-gtk/scripts/remaster-plymouth-preview
+echo
+echo 'Tema' $THEME 'aplicado'
+exit 

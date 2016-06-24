@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. /etc/remaster.conf
+WORKDIR="$WORKDIR"
+
+sudo rm -rf $WORKDIR
+
+sudo /usr/share/remaster-gtk/scripts/remaster backup
+
+
